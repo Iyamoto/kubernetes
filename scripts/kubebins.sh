@@ -11,5 +11,3 @@ source ./kubernetes/cluster/get-kube-binaries.sh
 #sudo cp ./kubernetes/client/bin/* /usr/bin/
 tar -xf ./kubernetes/server/kubernetes-server-linux-amd64.tar.gz
 sudo cp ./kubernetes/server/bin/* /usr/bin
-
-gcr.io/google-containers/hyperkube:
