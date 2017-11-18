@@ -5,3 +5,7 @@ notify { 'greeting':
 package { 'git':
   ensure  => installed,
 }
+
+package { 'fakeroot':
+  ensure  => installed,
+}
