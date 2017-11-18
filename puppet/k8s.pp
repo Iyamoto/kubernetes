@@ -10,12 +10,12 @@ file { "${binfolder}/kubectl":
   mode   => '0111',
 }
 
-$minikube_uri = 'https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64'
-
-exec { 'download minikube':
-  command => "${binfolder}/curl -s -L ${minikube_uri} -o ${binfolder}/minikube",
-  creates => "${binfolder}/minikube",
-} ->
-file { "${binfolder}/minikube":
-  mode   => '0111',
-}
+# $minikube_uri = 'https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64'
+#
+# exec { 'download minikube':
+#   command => "${binfolder}/curl -s -L ${minikube_uri} -o ${binfolder}/minikube",
+#   creates => "${binfolder}/minikube",
+# } ->
+# file { "${binfolder}/minikube":
+#   mode   => '0111',
+# }
