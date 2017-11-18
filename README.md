@@ -7,5 +7,4 @@
 
 ## Check k8s
 
-1. sudo swapoff -a
-2. sudo hyperkube kubelet
+1. bash scripts.runkube.sh

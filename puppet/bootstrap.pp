@@ -9,3 +9,11 @@ package { 'git':
 package { 'fakeroot':
   ensure  => installed,
 }
+
+package { 'bash-completion':
+  ensure  => installed,
+}
+
+package { 'jq':
+  ensure  => installed,
+}
