@@ -6,13 +6,11 @@
     cd /kubernetes/bin
     bash getbinaries.sh # Downloads binaries
     vagrant up
-    vagrant ssh
-    reboot
+    vagrant reload
 
 ## Use
 
-1. vagrant up
-2. vagrant ssh
+    vagrant ssh
 
 ## Check k8s
 
