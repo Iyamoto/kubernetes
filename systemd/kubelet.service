@@ -3,7 +3,6 @@ Description=Kubernetes Kubelet
 After=docker.service
 Requires=docker.service
 [Service]
-EnvironmentFile=/etc/kubernetes/cfg/kubelet
 ExecStart=/usr/bin/kubelet \
   --address=0.0.0.0 \
   --port=10250 \

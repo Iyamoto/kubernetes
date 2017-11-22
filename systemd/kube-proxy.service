@@ -3,7 +3,6 @@ Description=Kubernetes Proxy
 After=network.target
 
 [Service]
-EnvironmentFile=-/etc/kubernetes/cfg/kube-proxy
 ExecStart=/usr/bin/kube-proxy --kubeconfig=/etc/kubernetes/cfg/kubeconfig
 Restart=on-failure
 

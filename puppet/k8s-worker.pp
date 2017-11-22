@@ -1,14 +1,6 @@
 
 $binfolder = '/usr/bin'
 
-file { '/etc/kubernetes/manifests':
-    ensure => 'directory',
-} ->
-file { "/etc/kubernetes/manifests/master-1.yaml":
-  ensure => 'file',
-  source => '/vagrant/manifests/master-1.yaml',
-}
-
 file { "${binfolder}/kubelet":
   ensure => 'file',
   source => '/vagrant/bin/kubelet',
@@ -66,9 +58,4 @@ service { 'kube-proxy':
 file { "/etc/kubernetes/cfg/kubeconfig":
   ensure => 'file',
   source => '/vagrant/configs/kubeconfig',
-}
-
-file { "/etc/kubernetes/cfg/passwd":
-  ensure => 'file',
-  source => '/vagrant/configs/passwd',
 }
