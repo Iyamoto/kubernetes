@@ -19,10 +19,6 @@ file { '/etc/kubernetes':
 file { '/etc/kubernetes/cfg':
     ensure => 'directory',
 } ->
-file { "/etc/kubernetes/cfg/kubelet":
-  ensure => 'file',
-  source => '/vagrant/configs/kubelet',
-} ->
 file { "/usr/lib/systemd/system/kubelet.service":
   ensure => 'file',
   source => '/vagrant/systemd/kubelet.service',
@@ -37,10 +33,6 @@ service { 'kubelet':
   enable   => true,
 }
 
-file { "/etc/kubernetes/cfg/kube-proxy":
-  ensure => 'file',
-  source => '/vagrant/configs/kube-proxy',
-} ->
 file { "/usr/lib/systemd/system/kube-proxy.service":
   ensure => 'file',
   source => '/vagrant/systemd/kube-proxy.service',
