@@ -4,3 +4,4 @@
 bin/kubelet
 bin/kube-proxy
 bin/kubectl
+docker/*

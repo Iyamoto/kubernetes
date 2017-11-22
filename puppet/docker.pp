@@ -2,13 +2,16 @@
 package { 'docker':
   ensure  => installed,
 } ->
+file { '/etc/systemd/system/docker.service.d':
+    ensure => 'directory',
+} ->
 file { "/etc/systemd/system/docker.service.d/override.conf":
   ensure => 'file',
   source => '/vagrant/systemd/docker-override.conf',
 } ->
 service { 'docker':
   enable => true,
-  ensure => 'running',
+#  ensure => 'running',
 }
 
 group { 'docker':
