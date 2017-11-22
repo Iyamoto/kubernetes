@@ -1,4 +1,4 @@
-# Learning Kubernetes
+# Kubernetes cluster in Vagrant
 
 ## Install
 
@@ -12,6 +12,6 @@
 
     vagrant ssh
 
-## Check k8s
-
-1. bash scripts.runkube.sh
+    kubectl get componentstatus
+    kubectl get nodes
+    kubectl cluster-info dump
