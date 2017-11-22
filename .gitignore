@@ -1,2 +1,6 @@
 .vagrant
 .idea
+.git
+bin/kubelet
+bin/kube-proxy
+bin/kubectl

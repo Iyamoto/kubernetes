@@ -1,5 +1,11 @@
 # Learning Kubernetes
 
+## Install
+
+    git clone https://github.com/Iyamoto/kubernetes.git
+    cd /kubernetes/bin
+    bash getbinaries.sh # Downloads binaries
+
 ## Use
 
 1. vagrant up
