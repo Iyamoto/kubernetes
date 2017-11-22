@@ -22,12 +22,12 @@ spec:
       name: http
     volumeMounts:
     - mountPath: /var/apiserver
-      name: varapiserver
+      name: etckube
   - name: kube-controller-manager
     image: gcr.io/google_containers/kube-controller-manager:v1.8.4
     command:
     - /usr/local/bin/kube-controller-manager
-    - --master=127.0.0.1:8080
+    - --kubeconfig=/var/apiserver/kubeconfig
     - --cluster-cidr=172.16.0.0/16
     - --leader-elect=false
     livenessProbe:
@@ -40,11 +40,14 @@ spec:
     - containerPort: 10252
       hostPort: 10252
       name: http
+    volumeMounts:
+    - mountPath: /var/apiserver
+      name: etckube
   - name: kube-scheduler
     image: gcr.io/google_containers/kube-scheduler:v1.8.4
     command:
     - /usr/local/bin/kube-scheduler
-    - --master=127.0.0.1:8080
+    - --kubeconfig=/var/apiserver/kubeconfig
     - --leader-elect=false
     livenessProbe:
       httpGet:
@@ -56,6 +59,9 @@ spec:
     - containerPort: 10251
       hostPort: 10251
       name: http
+    volumeMounts:
+    - mountPath: /var/apiserver
+      name: etckube
   - name: etcd-container
     image: gcr.io/google_containers/etcd:3.0.17
     command:
@@ -64,7 +70,6 @@ spec:
     - --advertise-client-urls=http://127.0.0.1:4001
     - --listen-client-urls=http://0.0.0.0:4001
     - --data-dir=/var/etcd/data
-    - --discovery=4f10daaa8d4299d0df09b543cd88faa1
     ports:
     - containerPort: 2380
       hostPort: 2380
@@ -80,5 +85,5 @@ spec:
       path: /var/etcd/data
     name: varetcd
   - hostPath:
-      path: /var/apiserver
-    name: varapiserver
+      path: /etc/kubernetes/cfg
+    name: etckube

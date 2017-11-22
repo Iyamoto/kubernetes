@@ -67,3 +67,8 @@ file { "/etc/kubernetes/cfg/kubeconfig":
   ensure => 'file',
   source => '/vagrant/configs/kubeconfig',
 }
+
+file { "/etc/kubernetes/cfg/passwd":
+  ensure => 'file',
+  source => '/vagrant/configs/passwd',
+}
