@@ -13,12 +13,16 @@ spec:
     - --etcd-servers=http://127.0.0.1:4001
     - --service-cluster-ip-range=172.16.0.0/16
     - --insecure-port=8080
-    - --authorization-mode=Node
+    - --authorization-mode=AlwaysAllow
+    - --basic-auth-file=/var/apiserver/passwd
     - --secure-port=0
     ports:
     - containerPort: 8080
       hostPort: 8080
       name: http
+    volumeMounts:
+    - mountPath: /var/apiserver
+      name: varapiserver
   - name: kube-controller-manager
     image: gcr.io/google_containers/kube-controller-manager:v1.8.4
     command:
@@ -75,3 +79,6 @@ spec:
   - hostPath:
       path: /var/etcd/data
     name: varetcd
+  - hostPath:
+      path: /var/apiserver
+    name: varapiserver
