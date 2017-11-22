@@ -4,7 +4,13 @@ After=docker.service
 Requires=docker.service
 [Service]
 EnvironmentFile=/etc/kubernetes/cfg/kubelet
-ExecStart=/usr/bin/kubelet ${KUBELET_OPTS}
+ExecStart=/usr/bin/kubelet \
+  --address=0.0.0.0 \
+  --port=10250 \
+  --fail-swap-on=false \
+  --allow-privileged=false \
+  --pod-manifest-path=/etc/kubernetes/manifests/ \
+  --kubeconfig=/etc/kubernetes/cfg/kubeconfig
 Restart=on-failure
 KillMode=process
 

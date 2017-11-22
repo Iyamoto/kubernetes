@@ -63,3 +63,7 @@ service { 'kube-proxy':
   enable   => true,
 }
 
+file { "/etc/kubernetes/cfg/kubeconfig":
+  ensure => 'file',
+  source => '/vagrant/configs/kubeconfig',
+}
