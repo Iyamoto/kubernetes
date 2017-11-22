@@ -45,3 +45,21 @@ service { 'kubelet':
   enable   => true,
 }
 
+file { "/etc/kubernetes/cfg/kube-proxy":
+  ensure => 'file',
+  source => '/vagrant/configs/kube-proxy',
+} ->
+file { "/usr/lib/systemd/system/kube-proxy.service":
+  ensure => 'file',
+  source => '/vagrant/systemd/kube-proxy.service',
+} ->
+exec { 'kube-proxy-systemd-reload':
+  command     => 'systemctl daemon-reload',
+  path        => [ '/usr/bin', '/bin', '/usr/sbin' ],
+  refreshonly => true,
+} ->
+service { 'kube-proxy':
+#  ensure   => running,
+  enable   => true,
+}
+
