@@ -13,3 +13,5 @@ sudo puppet apply /vagrant/puppet/docker.pp
 sudo puppet apply /vagrant/puppet/k8s-worker.pp
 sudo puppet apply /vagrant/puppet/k8s-master.pp
 
+echo "source <(kubectl completion bash)" >> ~/.bashrc
+
