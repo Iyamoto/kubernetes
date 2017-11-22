@@ -5,6 +5,9 @@
     git clone https://github.com/Iyamoto/kubernetes.git
     cd /kubernetes/bin
     bash getbinaries.sh # Downloads binaries
+    vagrant up
+    vagrant ssh
+    reboot
 
 ## Use
 
